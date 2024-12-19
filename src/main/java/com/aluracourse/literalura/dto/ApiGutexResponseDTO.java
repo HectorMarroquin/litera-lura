@@ -8,5 +8,5 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ApiGutexResponseDTO(
-        @JsonAlias("results") List<Book> books
+        @JsonAlias("results") List<BookResponseDTO> books
 ) {}

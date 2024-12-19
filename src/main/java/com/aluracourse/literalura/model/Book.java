@@ -2,8 +2,6 @@ package com.aluracourse.literalura.model;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 @Table(name = "books")
 public class Book {
@@ -14,7 +12,7 @@ public class Book {
     private String title;
     private String mediaType;
     private String downloadCount;
-    private BookLanguaje lenguaje;
+    private String language;
     @ManyToOne
     private Author author;
 
@@ -50,12 +48,12 @@ public class Book {
         this.downloadCount = downloadCount;
     }
 
-    public BookLanguaje getLenguaje() {
-        return lenguaje;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setLenguaje(BookLanguaje lenguaje) {
-        this.lenguaje = lenguaje;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     public Author getAuthor() {
@@ -64,5 +62,12 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return  "title='" + title + '\'' +
+                ", mediaType='" + mediaType + '\'' +
+                ", downloadCount='" + downloadCount;
     }
 }
