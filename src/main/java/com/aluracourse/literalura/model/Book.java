@@ -13,7 +13,7 @@ public class Book {
     private Long id;
     private String title;
     private String mediaType;
-    private String download_count;
+    private String downloadCount;
     private BookLanguaje lenguaje;
     @ManyToOne
     private Author author;
@@ -42,12 +42,12 @@ public class Book {
         this.mediaType = mediaType;
     }
 
-    public String getDownload_count() {
-        return download_count;
+    public String getDownloadCount() {
+        return downloadCount;
     }
 
-    public void setDownload_count(String download_count) {
-        this.download_count = download_count;
+    public void setDownloadCount(String downloadCount) {
+        this.downloadCount = downloadCount;
     }
 
     public BookLanguaje getLenguaje() {
