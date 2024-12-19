@@ -1,7 +1,7 @@
 package com.aluracourse.literalura;
 
 import com.aluracourse.literalura.main.MenuHandler;
-import com.aluracourse.literalura.repository.BookService;
+import com.aluracourse.literalura.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

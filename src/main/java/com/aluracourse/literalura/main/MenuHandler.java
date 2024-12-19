@@ -1,8 +1,7 @@
 package com.aluracourse.literalura.main;
 
-import com.aluracourse.literalura.repository.BookService;
+import com.aluracourse.literalura.service.BookService;
 
-import java.awt.print.Book;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

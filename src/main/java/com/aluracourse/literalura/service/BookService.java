@@ -1,4 +1,4 @@
-package com.aluracourse.literalura.repository;
+package com.aluracourse.literalura.service;
 
 import org.springframework.stereotype.Service;
 
