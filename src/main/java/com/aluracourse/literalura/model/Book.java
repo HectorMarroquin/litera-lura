@@ -1,5 +1,6 @@
 package com.aluracourse.literalura.model;
 
+import com.aluracourse.literalura.dto.BookResponseDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +16,7 @@ public class Book {
     private String language;
     @ManyToOne
     private Author author;
+
 
     public Long getId() {
         return id;

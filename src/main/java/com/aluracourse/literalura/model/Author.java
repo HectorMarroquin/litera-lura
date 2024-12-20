@@ -16,6 +16,7 @@ public class Author {
     private String deathYear;
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Book> books;
+
     public Long getId() {
         return id;
     }

@@ -30,7 +30,6 @@ public class GutexApiService {
         }
 
         return null;
-
     }
 
 
