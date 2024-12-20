@@ -7,6 +7,7 @@ import com.aluracourse.literalura.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,6 +28,22 @@ public class AuthorService {
             Author newAuthor = AuthorMapper.toEntity( authorDTO );
             return  authorRepository.saveAndFlush( newAuthor );
         });
+
+    }
+
+    public void listRegisteredAuthors() {
+
+        List<Author> authors = authorRepository.findAll();
+
+        if( !authors.isEmpty()){
+            authors.forEach(System.out::println);
+        }else{
+            System.out.println("No hay autores registrados");
+        }
+
+    }
+
+    public void listLivingAuthors() {
 
     }
 

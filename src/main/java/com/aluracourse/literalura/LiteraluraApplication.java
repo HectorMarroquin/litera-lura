@@ -1,6 +1,7 @@
 package com.aluracourse.literalura;
 
 import com.aluracourse.literalura.main.MenuHandler;
+import com.aluracourse.literalura.service.AuthorService;
 import com.aluracourse.literalura.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,6 +14,9 @@ public class LiteraluraApplication implements CommandLineRunner {
 
 	@Autowired
 	private BookService bookService;
+	@Autowired
+	private AuthorService authorService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(LiteraluraApplication.class, args);
 	}
@@ -20,7 +24,7 @@ public class LiteraluraApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		MenuHandler menuHandler = new MenuHandler( bookService );
+		MenuHandler menuHandler = new MenuHandler( bookService, authorService );
 		menuHandler.menuOptions();
 	}
 }

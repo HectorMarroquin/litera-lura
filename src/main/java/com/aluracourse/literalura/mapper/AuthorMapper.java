@@ -10,7 +10,7 @@ public class AuthorMapper {
         Author author = new Author();
         author.setName( authorDTO.name());
         author.setBirthYear( authorDTO.birthYear());
-        author.setDeathYear(author.getDeathYear() );
+        author.setDeathYear( authorDTO.deathYear() );
 
         return author;
     }

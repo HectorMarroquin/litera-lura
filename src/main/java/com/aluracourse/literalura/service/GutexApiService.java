@@ -25,11 +25,13 @@ public class GutexApiService {
 
         ApiGutexResponseDTO response = jsonParseService.getData(jsonResponse, ApiGutexResponseDTO.class);
 
-        if( response != null && response.books() != null ){
+        // Validar si la respuesta y la lista de libros no son nulas o vacías
+        if (response != null && response.books() != null && !response.books().isEmpty()) {
             return response.books().get(0);
+        } else {
+            return null; // O puedes lanzar una excepción o retornar un valor por defecto
         }
 
-        return null;
     }
 
 

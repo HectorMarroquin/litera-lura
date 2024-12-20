@@ -8,6 +8,7 @@ import com.aluracourse.literalura.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Scanner;
 
 @Service
@@ -33,23 +34,38 @@ public class BookService {
         String bookName = scanner.nextLine();
         BookResponseDTO bookDTO = gutexApiService.getBookByName( bookName );
 
+        if (bookDTO == null) {
+            System.out.println("No se encontró ningún libro con el título: " + bookName);
+            return; // Salir del método si no hay resultados
+        }
+
         Author author = authorService.findOrCreateAuthor( bookDTO.authors().get(0) );
 
         Book book = BookMapper.toEntity(bookDTO);
         book.setAuthor(author);
         bookRepository.save(book);
 
+        System.out.println(book);
+
     }
 
     public void listRegisteredBooks() {
-    }
 
-    public void listRegisteredAuthors() {
-    }
+        List<Book> books = bookRepository.findAll();
 
-    public void listLivingAuthors() {
+        if( !books.isEmpty()){
+            books.forEach(System.out::println);
+        }else{
+            System.out.println("No hay libros agregados");
+        }
+
     }
 
     public void listBooksByLanguage() {
+
+
+
     }
+
+
 }

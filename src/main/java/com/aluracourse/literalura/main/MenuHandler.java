@@ -1,5 +1,6 @@
 package com.aluracourse.literalura.main;
 
+import com.aluracourse.literalura.service.AuthorService;
 import com.aluracourse.literalura.service.BookService;
 
 import java.util.InputMismatchException;
@@ -9,9 +10,11 @@ public class MenuHandler {
 
     private final Scanner keyboardInput = new Scanner(System.in);
     private final BookService bookService;
+    private final AuthorService authorService;
 
-    public MenuHandler(BookService bookService) {
+    public MenuHandler(BookService bookService, AuthorService authorService) {
         this.bookService = bookService;
+        this.authorService = authorService;
     }
 
     public void menuOptions() {
@@ -59,12 +62,12 @@ public class MenuHandler {
         switch (option) {
             case 1 -> bookService.searchBookByTitle();
             case 2 -> bookService.listRegisteredBooks();
-            case 3 -> bookService.listRegisteredAuthors();
-            case 4 -> bookService.listLivingAuthors();
+            case 3 -> authorService.listRegisteredAuthors();
+            case 4 -> authorService.listLivingAuthors();
             case 5 -> bookService.listBooksByLanguage();
             case 0 -> System.out.println("Exiting the application...");
             default -> System.out.println("Invalid option. Please try again.");
         }
-        System.out.println(); // Add a blank line for better readability
+        System.out.println();
     }
 }
