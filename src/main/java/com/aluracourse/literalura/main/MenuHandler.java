@@ -68,6 +68,6 @@ public class MenuHandler {
             case 0 -> System.out.println("Exiting the application...");
             default -> System.out.println("Invalid option. Please try again.");
         }
-        System.out.println();
+        System.out.println(); // para dar un salto de linea
     }
 }

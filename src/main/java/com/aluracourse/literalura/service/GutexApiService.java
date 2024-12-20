@@ -31,7 +31,6 @@ public class GutexApiService {
         } else {
             return null; // O puedes lanzar una excepción o retornar un valor por defecto
         }
-
     }
 
 
