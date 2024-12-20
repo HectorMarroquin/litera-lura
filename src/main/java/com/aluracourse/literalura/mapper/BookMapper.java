@@ -12,7 +12,7 @@ public class BookMapper {
         book.setMediaType(dto.mediaType());
         book.setLanguage(dto.language());
         book.setDownloadCount(String.valueOf(dto.downloadCount()));
-        book.setAuthor( AuthorMapper.toEntity(dto.authors().get(0)));
+//        book.setAuthor( AuthorMapper.toEntity(dto.authors().get(0)));
         return book;
     }
 

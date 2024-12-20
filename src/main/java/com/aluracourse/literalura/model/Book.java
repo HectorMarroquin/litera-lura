@@ -14,7 +14,7 @@ public class Book {
     private String mediaType;
     private String downloadCount;
     private String language;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Author author;
 
     public Long getId() {
