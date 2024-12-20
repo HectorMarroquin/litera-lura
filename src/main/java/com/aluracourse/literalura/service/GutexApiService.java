@@ -21,7 +21,7 @@ public class GutexApiService {
 
     public BookResponseDTO getBookByName(String bookName){
         String url = BASE_URL + "/?search=" + bookName.replace(" ","+");
-        String jsonResponse = apiClientService.realizarGet(url); // TODO: Cambiar nombre
+        String jsonResponse = apiClientService.sendHttpGet(url);
 
         ApiGutexResponseDTO response = jsonParseService.getData(jsonResponse, ApiGutexResponseDTO.class);
 

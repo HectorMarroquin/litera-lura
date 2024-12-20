@@ -7,13 +7,16 @@ import com.aluracourse.literalura.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 
 @Service
 public class AuthorService {
 
     private final AuthorRepository authorRepository;
+    private final Scanner scanner = new Scanner(System.in);
 
     @Autowired
     public AuthorService(AuthorRepository authorRepository) {
@@ -45,6 +48,24 @@ public class AuthorService {
 
     public void listLivingAuthors() {
 
-    }
+        System.out.println("Ingrese el año, para ver autores vivos antes de esa fecha");
+        String input = scanner.nextLine();
+        int date;
 
+        if (!input.matches("\\d+")) { // Validar que la entrada contenga solo números
+            System.out.println("Solo se permiten números");
+            return;
+        }
+
+        date = Integer.parseInt(input); // Convertir a entero después de validar
+
+        List<Author> authors = authorRepository.findByDeathYearBefore( date );
+
+        if( !authors.isEmpty()){
+            authors.forEach(System.out::println);
+        }else{
+            System.out.println("No hay autores registrados");
+        }
+
+    }
 }

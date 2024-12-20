@@ -24,7 +24,7 @@ public class ApiClientService {
      * @param url La URL destino.
      * @return La respuesta HTTP como un String.
      */
-    public String realizarGet(String url) {
+    public String sendHttpGet(String url) {
         // Construcción de la petición HTTP
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
