@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 @Service
 public class BookService {
-
 
     private GutexApiService gutexApiService;
     private BookRepository bookRepository;
@@ -25,8 +25,6 @@ public class BookService {
         this.bookRepository = bookRepository;
         this.authorService = authorService;
     }
-
-
 
     public void searchBookByTitle() {
 
@@ -58,14 +56,34 @@ public class BookService {
         }else{
             System.out.println("No hay libros agregados");
         }
-
     }
 
     public void listBooksByLanguage() {
+        List<String> languages = bookRepository.groupByBooksLanguage();
 
+        // Usamos un contador para enumerar los elementos
+        for (int i = 0; i < languages.size(); i++) {
+            System.out.println((i + 1) + ". " + languages.get(i));
+        }
 
+        System.out.println("Ingrese el numero del idioma de los libros a buscar");
+        String input = scanner.nextLine();
+        int option;
+
+        if (!input.matches("\\d+")) { // Validar que la entrada contenga solo números
+            System.out.println("Solo se permiten números");
+            return;
+        }
+        option = Integer.parseInt(input); // Convertir a entero después de validar
+        option = option -1;
+
+        List<Book> books = bookRepository.findByLanguage( languages.get(option) );
+
+        if ( !books.isEmpty()){
+            books.forEach(System.out::println);
+        }else{
+            System.out.println("No Se encontró el libro");
+        }
 
     }
-
-
 }

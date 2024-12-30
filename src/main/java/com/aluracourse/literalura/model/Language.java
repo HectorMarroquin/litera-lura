@@ -6,7 +6,7 @@ public enum Language {
 
     private String categoriaOmdb;
 
-    Language( String categoriaOmdb){
+    Language(String categoriaOmdb) {
         this.categoriaOmdb = categoriaOmdb;
     }
 
@@ -17,9 +17,6 @@ public enum Language {
                 return categoria;
             }
         }
-        throw new IllegalArgumentException("Ningun lenguaje encontrada: " + text);
+        throw new IllegalArgumentException("Ningún lenguaje encontrada: " + text);
     }
-
-
 }
-
