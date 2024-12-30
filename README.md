@@ -19,7 +19,7 @@ I try to use a structure project, order and clear to escalate later.
 ### Pattern Designs and Technical Facts proposed
 
 * DTO
-* Inyection Dependecies
+* Dependency Injection
 * Mapppers
-* Single Responsabilities
+* Single Responsibility
 * DRY
